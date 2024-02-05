@@ -6,3 +6,6 @@ makemigrations:
 
 migrate:
 	poetry run python src/manage.py migrate
+
+flake8:
+	poetry run flake8 --config  .flake8
