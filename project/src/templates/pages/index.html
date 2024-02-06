@@ -4,7 +4,7 @@
 {% block content %}
     {% draw_menu 'first menu' as menu %}
 
-    <h3>{{ menu.menu.name }}</h3>
+    <h3>{{ menu.menu_name }}</h3>
 
     <ul>
         {% for item in menu.menu_items %}
@@ -18,7 +18,7 @@
 
     {% draw_menu 'second menu' as menu %}
 
-    <h3>{{ menu.menu.name }}</h3>
+    <h3>{{ menu.menu_name }}</h3>
 
     <ul>
         {% for item in menu.menu_items %}
