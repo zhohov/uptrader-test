@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  web:
+    build:
+      context: ./project
+    volumes:
+      - media:/app/src/media
+      - static:/app/src/static
+    env_file:
+      - project/.env
+    restart: always
+    networks:
+      - nginx_network
+
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static:/app/src/static
+      - media:/app/src/media
+    ports:
+      - "80:80"
+    networks:
+      - nginx_network
+    depends_on:
+      - web
+
+networks:
+  nginx_network:
+    driver: bridge
+
+volumes:
+  media:
+  static:

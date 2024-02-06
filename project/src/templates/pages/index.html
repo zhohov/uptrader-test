@@ -15,4 +15,18 @@
             </li>
         {% endfor %}
     </ul>
+
+    {% draw_menu 'second menu' as menu %}
+
+    <h3>{{ menu.menu.name }}</h3>
+
+    <ul>
+        {% for item in menu.menu_items %}
+            <li>
+                <a href="{{ item.url }}" {% if request.path == item.url %}class="active"{% endif %}>
+                    {{ item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
